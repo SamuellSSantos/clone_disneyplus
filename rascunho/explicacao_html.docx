@@ -1,0 +1,89 @@
+🔹 document.addEventListener('DOMContentLoaded', function () { ... })
+Isso significa:
+
+Espera o carregamento completo do HTML (DOM) antes de rodar o código JS.
+
+Isso garante que todos os elementos HTML (botões e abas) já existem na página quando você tenta selecioná-los com querySelectorAll.
+
+🔧 É uma boa prática para evitar erros como “elemento não encontrado”.
+
+🔹 const buttons = document.querySelectorAll('[data-tab-button]');
+Seleciona todos os botões de navegação das abas que possuem o atributo data-tab-button.
+
+🧠 Por que data-*?
+→ É uma forma prática de armazenar informações personalizadas no HTML.
+
+Exemplo no HTML:
+
+html
+Copiar
+Editar
+<button data-tab-button="filmes">Filmes</button>
+🔹 const tabs = document.querySelectorAll('[data-tab-id]');
+Seleciona todas as abas de conteúdo que possuem o atributo data-tab-id.
+
+Exemplo no HTML:
+
+html
+Copiar
+Editar
+<div data-tab-id="filmes">Conteúdo da aba Filmes</div>
+🔹 Loop: for (let i = 0; i < buttons.length; i++) { ... }
+Percorre cada botão, adicionando um ouvinte de evento (click) a ele.
+
+🔹 Dentro do evento de clique:
+const tabTarget = event.target.dataset.tabButton;
+Pega o valor do atributo data-tab-button do botão clicado.
+
+Esse valor identifica qual aba deve ser exibida.
+
+const tabToShow = document.querySelector([data-tab-id="${tabTarget}"]);
+Com base no valor capturado acima, ele procura no DOM a aba correspondente com data-tab-id="mesmo_valor".
+
+🔹 escondeTodasAbas();
+Chama uma função que remove a classe de visibilidade ativa de todas as abas.
+
+🔹 tabToShow.classList.add('shows__list--is-active');
+Adiciona uma classe CSS para mostrar a aba certa (a correspondente ao botão clicado).
+
+🔹 removeBotaoAtivo();
+Remove a classe ativa de todos os botões para garantir que só o botão clicado fique com destaque.
+
+🔹 event.target.classList.add('shows__tabs__button--is-active');
+Adiciona a classe CSS de botão ativo ao botão clicado.
+
+🔹 Função removeBotaoAtivo()
+js
+Copiar
+Editar
+for (let i = 0; i < buttons.length; i++) {
+    buttons[i].classList.remove('shows__tabs__button--is-active');
+}
+Remove a classe ativa de todos os botões.
+
+🔹 Função escondeTodasAbas()
+js
+Copiar
+Editar
+for (let i = 0; i < tabs.length; i++) {
+    tabs[i].classList.remove('shows__list--is-active');
+}
+Remove a classe ativa (visibilidade) de todas as abas.
+
+🧠 Resumo geral:
+A função principal só é executada quando a página termina de carregar.
+
+Todos os botões e abas são selecionados.
+
+Quando um botão é clicado:
+
+Descobre qual aba exibir.
+
+Esconde todas as abas.
+
+Mostra só a aba correspondente.
+
+Tira o destaque de todos os botões.
+
+Ativa o botão clicado.
+

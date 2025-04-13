@@ -297,3 +297,222 @@ agora em .hero precisamos definir o background-size como cover para que
 ele preencha o espaço do background com os elementos
 e nao ultrapasse
 background-size:cover;
+
+
+
+
+
+                                            Importe uma fonte externa continuação do projeto
+
+        vamos fazer a criação de duas pastas para colocar o arquivo da
+        font
+        pasta assets e dentro dela uma outra com o nome fonts
+        dentro dessa pasta tera o arquivo Avenir-Boldwoff2, Avenir-Regular.woff2 
+
+        agora vamos fazer a importação desses arquivos no nosso
+        main.scss
+
+        usando
+        @font-face{
+            font-family: Avenir;
+            src: url(../../assets/fonts/AvenirpRegular.woff2);
+            font-weight: 400;
+        }
+
+        usamos essa regra para bold também mudando apenas o nome do arquivo
+        com o weight de 700
+
+        @font-face{
+            font-family: Avenir;
+            src: url(../../assets/fonts/AvenirpBold.woff2);
+            font-weight: 700;
+        }
+
+        agora vamos usar essa font em nosso
+        projeto, em body vamos usar o font-family: Avenir, sans-serif;
+para usar a font importada
+
+                                                        Crie a seção de atrações
+
+    no html vamos criar uma nova seção com o nome de shows
+    section>
+    dentro dela teremos um ul com a classe shows__list
+    dentro do ul teremos 6 li com a class shows__list__item
+    dentro do li teremos uma imagem essa imagem esta na pasta de imagens
+    no .dist/images/em_breve/spidy.jpg
+
+    agora vamos estilizar esse nosso conteudo e para isso em styles vamos criar mais um arquivo chamado _shows.scss
+    dentro dele criamos a class
+
+    .shows para configurarmos os elementos da nova seção
+
+    precisamos importar esse arquivo no nosso arquivo main.css usando @use 'shows';
+
+
+    dentro de shows colocamos a classe &__list  e dentro de list colocamos a class &__item e dentro dele a imagem img
+
+    .shows{
+        &__list{
+            &__item{
+                img{
+
+                }
+            }
+        }
+    }
+
+    agora vamos definir um padding para a seção , em .shows vamos atribuir um padding com 2vw na parte superior e 5.6vw nas laterais
+
+    padding:2vw 5.6vw;
+
+    agora dentro da lista vamos usar o display grid
+    &__list{
+        display: grid;
+    }
+
+    para adicionar as colunas vamos colocar um grid-template-columns: 1fr 1fr 1fr
+    agora em img precisamos definir um max-width de 100% para que a imagens oculpe 
+    todo o espaço
+
+    em &__list vamos usar o atributo gap:24px;
+    vamos atribuir uma borda arredondada de 4px na img
+
+    vamos agora construir um menu
+    encima do ul com a class=shows__list teremos um nav com o class="shows__tabs"
+
+    dentro dele teremos 3 buttons com a class=shows__tabs__button
+    o primeiro button vai ter a frase Em breve o segundo vai ter mais populares e o terceiro vai ter Mais no Star+
+
+    agora  vamos criar a regra no main.scss
+    
+    antes disso precisamos criar importar os arquivos de variaveis
+    no _shows.scss
+
+    @use 'variaveis'
+
+&__tabs{
+    &__button{
+
+    }
+}
+
+agora em __button vamos definir a cor usando a nossa variavel corTextoSecundario
+color: variaveis.$corTextoSecundario
+
+famos colocar tambem o botão com o tamanho de 20px com font-size: 20px
+o botão vai ter uma borda de 5px solid com a cor #f9f9f9;
+
+    border-bottom: 5px solid #f9f9f9;
+
+    vai ter um espacamento interno de 5px
+    padding-bottom: 5px
+
+    vamos definir o background color do botão como transparente usando
+    background:transparent;
+
+    vamos deixar o texto todo em maisculo usando 
+    text-transform: uppercase;
+
+    vamos usar a margem de 0 1vw usando 
+    margin: 0 1vw
+
+    agora na __list vamos adicionar uma margin no top de 44px
+    mardin-top: 44px
+
+    agora em __tabs precisamos centralizar os botções para isso vamos 
+    usar o display: flex e
+            justify-content: center
+
+precisamos usar trocar a nossa fonte de lugar para que seja aplicada nos botões, 
+para isso vamos tirar a font-family: Avenir, sans-serif da tag body e vamos aplicar 
+em nosso *{font-family:Avenir, sans-serif}
+
+
+agora no __botton precisamos remover a borda padrão usando
+border:none
+isso encima da borda que colocamos
+
+agora no HTML dentro de shows na class dos botões vamos usar uma classe para fazer a ativação da nossa
+pagina
+shows__button--is-active
+
+
+a nossa borda sera aplicada somente para essa classe, então precisamos remover a nossa borda inferios do botão e 
+colocarmos nessa nova classe
+
+&--is-active{
+    border-bottom: 5px solid variaveis.$corTextoSefundario
+}
+
+precisamos configurar o nosso &__list para que mostre apenas a aba com a class &--is-active
+para isso definimos o display dentro da list como none e depois aplicamos display: grid na classe &--is-active dentro de &__list
+
+precisamos adicionar a classe shows__list--is-active na nossa ul
+agora vamos fazer a programação das nossa abas usando apenas javascript
+    
+
+agora vamos copiar a nossa ul inteira mais duas vezes
+
+agora no primeiro  button da classe shows vamos usar um recurso chamado data-tab-button
+e vamos atribuir um nome "em_breve"
+
+data-tab-button="em_breve"
+
+
+agora na classe ul usamos o atributo data-tab-id="em_breve" para que ele reconheça quando clicarem no primeiro bottom
+
+precismos fazer isso para os outros botões  atribuindo data neles e nas respectivas uls
+
+a segunda ul tera data-tab-id="populares" e o segundo botão tera data-tab-button="populares"
+
+a terceira ul tera o nome data-tab-id="star_plus" e o terceiro botão tera o nome data-tab-button="star_plus"
+
+
+agora em src vamos criar um novo arquivo chamado chamado main.js, vamos criar a nosssa ligica aqui
+
+agora no html precisamos fazer a importaçao desse arquivo
+para isso no final da pagina usamos a tag script e o caminho do nosso arquivo 
+
+<script src="./src/main.js"></script> agora no arquivo  arquivo js vamos usar o seguinte comando
+document.ddEventListner('DOMContentLoaded', function(){
+    
+    
+    
+    document.addEventListener('DOMContentLoaded', function () {
+        const buttons = document.querySelectorAll('[data-tab-button]');
+        const tabs = document.querySelectorAll('[data-tab-id]');
+    
+        for (let i = 0; i < buttons.length; i++) {
+            buttons[i].addEventListener('click', function (event) {
+                const tabTarget = event.target.dataset.tabButton;
+                const tabToShow = document.querySelector(`[data-tab-id="${tabTarget}"]`);
+    
+                escondeTodasAbas();
+                tabToShow.classList.add('shows__list--is-active');
+    
+                removeBotaoAtivo();
+                event.target.classList.add('shows__tabs__button--is-active');
+            });
+        }
+    
+        function removeBotaoAtivo() {
+            for (let i = 0; i < buttons.length; i++) {
+                buttons[i].classList.remove('shows__tabs__button--is-active');
+            }
+        }
+    
+        function escondeTodasAbas() {
+            for (let i = 0; i < tabs.length; i++) {
+                tabs[i].classList.remove('shows__list--is-active');
+            }
+        }
+    });
+    
+
+em _shows.scss na class &__button  vamos colocar o cursor como pointer
+cursor:pointer
+e vamos colocar uma borda transparente usando  border-bottom: 5px solid transparent;
+
+vamos fazer a alteração também da cor da borda do nosso &--is-active usando
+border-color: variaveis.$corTextoSecundario;
+
