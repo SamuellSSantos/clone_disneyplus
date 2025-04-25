@@ -6,6 +6,11 @@
     background-image: url(../images/hero_desktop.jpeg);
     text-align: center;
     background-size: cover;
+    .bottom{
+        margin-top: top 2vw;
+        margin-bottom: 8px;
+
+    }
     
         &__content{
             max-width: 640px;

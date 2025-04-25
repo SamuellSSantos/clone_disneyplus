@@ -1,0 +1,25 @@
+.header{
+    &__container{
+        padding: 8px 36px;
+        display: flex;
+        justify-content: space-around;
+
+        .button{
+            height: 50px;
+        }
+
+    }
+    &__log{
+        max-width: 80px;
+        width: 100%;
+        margin: 5px;
+    }
+    &__links{
+        display: flex;
+
+        &__item{
+            margin: 5px;
+
+        }
+    }
+}

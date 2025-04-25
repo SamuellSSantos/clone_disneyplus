@@ -7,11 +7,25 @@
     <title>Clone_disney</title>
 </head>
 <body>
+    <header class="header">
+        <div class="header__container">
+            <h1 class="header__log"><img src="./dist/images/disneyplus.svg" alt="disney"></h1>
+            <ul class="header__links">
+                <li class="header__links__item">
+                    <a class="button button--secondary" href="#">Assine agora</a>
+                </li>
+                <li class="header__links__item">
+                    <a class="button button--dark" href="#">Entrar</a>
+                </li>
+            </ul>
+        </div>
+
+    </header>
     <section class="hero">
         <div class="hero__content">
-            <h1>
+            <div>
                 <img class="hero__content" src="./dist/images/disneyplus.svg" alt="titulo disney+">
-            </h1>
+            </div>
             <h3 class="title--small">
                 As melhores histórias em um só lugar.
             </h3>
@@ -199,7 +213,7 @@
         <ul class="faq__questions">
             <li class="faq__questions__item">
                 <div class="faq__questions__item__question text--big"data-faq-question>
-                    pergunta?
+                    O que está incluído no Disney+
                     <div class="faq__questions__item__answer" >
                         resposta
                     </div>
@@ -207,7 +221,7 @@
             </li>
             <li class="faq__questions__item">
                 <div class="faq__questions__item__question text--big" data-faq-question>
-                    pergunta?
+                    Já tem o Disney+ ou Star+ e quer o Combo+?
                     <div class="faq__questions__item__answer text--big">
                         resposta
                     </div>
@@ -215,7 +229,15 @@
             </li>
             <li class="faq__questions__item">
                 <div class="faq__questions__item__question" data-faq-question>
-                    pergunta?
+                    Quais formas de pagamento posso utilizar?
+                    <div class="faq__questions__item__answer">
+                        resposta
+                    </div>
+                </div>
+            </li>
+            <li class="faq__questions__item">
+                <div class="faq__questions__item__question" data-faq-question>
+                    Como posso ver conteúdo com classificação indicativa até 16 e 18?
                     <div class="faq__questions__item__answer">
                         resposta
                     </div>
@@ -223,6 +245,36 @@
             </li>
 
         </ul>
+    </section>
+    <section class="footer">
+        <div class="footer__container">
+            <img class="footer__container__logo" src="./dist/images/disneyplus.svg" alt="Disney+">
+            <ul class="footer__links">
+                <li class="footer__links__item">
+                    <div class="linguage-selector">
+                        <img src="./dist/images/icones/globe.svg" alt="Globo do mundo">
+                        <select>
+                            <option >English</option>
+                            <option selected> Português</option>
+                        </select>
+                    </div>
+                </li>
+                <li class="footer__links__item text--small"><a href="#">Termos e Condições de Uso</a></li>
+                <li class="footer__links__item text--small"><a href="#">Política de privacidade</a></li>
+                <li class="footer__links__item text--small"><a href="#">Proteção de Dados no Brasil</a></li>
+                <li class="footer__links__item text--small"><a href="#">Anúncos personalizados</a></li>
+                <li class="footer__links__item text--small"><a href="#">Dispositivos compatíveis</a></li>
+                <li class="footer__links__item text--small"><a href="#">Ajuda</a></li>
+                <li class="footer__links__item text--small"><a href="#">Sobre o Disney+</a></li>
+                
+            </ul>
+            <ul class="footer__links">
+                <li><a class="text--small" href="#">Termos e condições de Uso</a></li>
+            </ul>
+            <p class="text--small">2022 Disney, disney+ e The Walt Disney Company. Todos os direitos reservados. Serviço de assinatura paga. Conteúdo sujeito a disponibilidade.</p>
+            <p class="text--small">Disney+ é um serviço pago, baseado em assinatura e sujeito a termos e condições. O serviço Disney+ é comercializado...</p>
+
+        </div>
     </section>
     <script src="./src/main.js"></script>
     

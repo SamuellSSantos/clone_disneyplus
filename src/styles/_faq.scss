@@ -21,6 +21,8 @@
 
                 &::after {
                     content: '+';
+                    padding: 24px;
+                    display: inline-block;
                     position: absolute;
                     top: 0;
                     right: 24px;
