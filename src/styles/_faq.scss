@@ -13,7 +13,7 @@
 
             &__question {
                 color: #fff;
-                font-size: 29px;
+                font-size: 20px;
                 padding: 24px;
                 display: block;
                 cursor: pointer;
@@ -21,11 +21,10 @@
 
                 &::after {
                     content: '+';
-                    padding: 24px;
-                    display: inline-block;
                     position: absolute;
                     top: 0;
                     right: 24px;
+                    height: 100%;
                     display: flex;
                     align-items: center;
                     font-size: 40px;
@@ -36,17 +35,18 @@
                 height: 0;
                 overflow: hidden;
                 padding: 0 24px;
-                transition: height 0.5s ease;
+                transition: height, .5s ease;
             }
 
-            &.faq__questions__item--is-open {
+            &--is-open {
                 .faq__questions__item__question::after {
                     content: '-';
                 }
-
+                
                 .faq__questions__item__answer {
                     height: auto;
-                    padding: 24px;
+                    padding-bottom: 24px;
+                    transition: height, .5s ease;
                 }
             }
         }

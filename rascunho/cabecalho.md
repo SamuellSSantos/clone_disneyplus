@@ -15,8 +15,7 @@ ul class="header__links"
     li class="header__links__item 
         a heref="#" class"button" Assine agora
     li
-ul/
-ul
+    
     li  header__links__item 
         a heref="#" class"button"Entrar
     li
